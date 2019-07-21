@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('signup', 'UsersController@create')->name('signup');
+Route::resource('users', 'UsersController');
