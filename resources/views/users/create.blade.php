@@ -36,6 +36,7 @@
   <div class="register-box-body">
     <p class="login-box-msg">新用户注册</p>
 
+    @include('shared._errors')
     <form action="{{ route('users.store') }}" method="post">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
