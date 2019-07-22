@@ -12,6 +12,9 @@
       </h1>
     </section>
 
+
+@include('shared._messages')
+
     <!-- Main content -->
     <section class="content container-fluid">
 
