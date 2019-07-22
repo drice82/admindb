@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('app', 'UsersController@app')->name('app');
+Route::get('app', 'AppsController@app')->name('app');
 Route::get('signup', 'UsersController@create')->name('signup');
 Route::resource('users', 'UsersController');
 Route::get('login', 'SessionsController@create')->name('login');

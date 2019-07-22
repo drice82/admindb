@@ -7,11 +7,6 @@ use App\User;
 
 class UsersController extends Controller
 {
-    public function app()
-    {
-	return view('layouts.app');
-    }
-    //
     public function create()
     {
         return view('users.create');
