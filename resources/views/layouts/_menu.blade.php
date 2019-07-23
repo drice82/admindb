@@ -20,17 +20,18 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">用户菜单</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+        <li class="active"><a href="{{ route('announcement') }}"><i class="fa fa-link"></i> <span>网站公告</span></a></li>
+        <li><a href="{{ route('profile') }}"><i class="fa fa-link"></i> <span>个人资料</span></a></li>
+        <li class="header">信息库</li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+          <a href="#"><i class="fa fa-link"></i> <span>海关数据</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
+            <li><a href="#">中国海关数据</a></li>
+            <li><a href="#">美国海关数据</a></li>
           </ul>
         </li>
       </ul>

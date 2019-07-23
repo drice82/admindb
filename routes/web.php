@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('app', 'AppsController@app')->name('app');
+Route::get('announcement', 'AppsController@announcement')->name('announcement');
+Route::get('profile', 'AppsController@profile')->name('profile');
 Route::get('signup', 'UsersController@create')->name('signup');
 Route::resource('users', 'UsersController');
 Route::get('login', 'SessionsController@create')->name('login');

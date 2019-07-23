@@ -18,4 +18,14 @@ class AppsController extends Controller
         return view('layouts.app');
     }
 
+    public function announcement()
+    {
+        return view('announcement');
+    }
+
+    public function profile()
+    {
+        return view('profile');
+    }
+
 }

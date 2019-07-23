@@ -23,6 +23,16 @@ class UsersController extends Controller
         return view('users.create');
     }
 
+    public function index()
+    {
+	return "error";
+    }
+
+    public function edit(User $user)
+    {
+        return view('users.edit', compact('user'));
+    }
+
     public function show(User $user)
     {
         return view('users.show', compact('user'));
@@ -45,6 +55,21 @@ class UsersController extends Controller
 	Auth::login($user);
         session()->flash('success', '验证邮件已发送到你的注册邮箱上，请注意查收。');
         return redirect()->route('app');
+    }
+
+    public function update(User $user, Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'password' => 'required|confirmed|min:6'
+        ]);
+
+        $user->update([
+            'name' => $request->name,
+            'password' => bcrypt($request->password),
+        ]);
+	session()->flash('success', '修改成功！');
+        return redirect()->route('profile');
     }
 
     protected function sendEmailConfirmationTo($user)
