@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use Auth;
 use Mail;
@@ -13,7 +14,11 @@ class UsersController extends Controller
     {
 
         $this->middleware('auth', [
-            'except' => ['show', 'create', 'store', 'index', 'confirmEmail']
+            'except' => ['create', 'store', 'confirmEmail']
+        ]);
+
+        $this->middleware('guest', [
+            'only' => ['create']
         ]);
 
     }
@@ -28,15 +33,20 @@ class UsersController extends Controller
 	return "error";
     }
 
+    public function show()
+    {
+        return "error";
+    }
+
     public function edit(User $user)
     {
         return view('users.edit', compact('user'));
     }
 
-    public function show(User $user)
-    {
-        return view('users.show', compact('user'));
-    }
+//    public function show(User $user)
+//    {
+//        return view('users.show', compact('user'));
+//    }
 
     public function store(Request $request)
     {
@@ -63,13 +73,18 @@ class UsersController extends Controller
             'name' => 'required|max:50',
             'password' => 'required|confirmed|min:6'
         ]);
-
-        $user->update([
-            'name' => $request->name,
-            'password' => bcrypt($request->password),
-        ]);
-	session()->flash('success', '修改成功！');
-        return redirect()->route('profile');
+	if (Hash::check($request->oldpassword,Auth::user()->password)){
+            $user->update([
+                'name' => $request->name,
+                'password' => bcrypt($request->password),
+            ]);
+	    session()->flash('success', '修改成功！');
+            return redirect()->route('profile');
+	}
+	else {
+	    session()->flash('danger', '密码错误！');
+	    return redirect()->route('profile');
+	}
     }
 
     protected function sendEmailConfirmationTo($user)

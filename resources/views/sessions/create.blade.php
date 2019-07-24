@@ -30,18 +30,18 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="../../index2.html"><b>{{ config('app.name') }}</b></a>
   </div>
    @include('shared._messages')
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">用户登录</p>
 
     @include('shared._errors')
     <form action="{{ route('login') }}" method="post">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
+        <input type="email" name="email" class="form-control" placeholder="邮箱" value="{{ old('email') }}">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">

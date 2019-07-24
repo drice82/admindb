@@ -30,7 +30,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="#"><b>{{ config('app.name') }}</b></a>
   </div>
 
   <div class="register-box-body">
@@ -40,11 +40,11 @@
     <form action="{{ route('users.store') }}" method="post">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input type="text" name="name" class="form-control" placeholder="昵称" value="{{ old('name')}}">
+        <input type="text" name="name" class="form-control" placeholder="名称" value="{{ old('name')}}">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email')}}">
+        <input type="email" name="email" class="form-control" placeholder="邮箱" value="{{ old('email')}}">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -59,7 +59,7 @@
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox"> I agree to the <a href="#">terms</a>
+              <input type="checkbox"> 同意 <a href="#">使用协议</a>
             </label>
           </div>
         </div>
@@ -71,7 +71,7 @@
       </div>
     </form>
 
-    <a href="login.html" class="text-center">I already have a membership</a>
+    <a href="{{ route('login') }}" class="text-center">已经注册了？请登录</a>
   </div>
   <!-- /.form-box -->
 </div>

@@ -21,7 +21,7 @@
         <li class="header">用户菜单</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ route('announcement') }}"><i class="fa fa-link"></i> <span>网站公告</span></a></li>
-        <li><a href="{{ route('profile') }}"><i class="fa fa-link"></i> <span>个人资料</span></a></li>
+        <li><a href="{{ route('profile') }}"><i class="fa fa-link"></i> <span>用户资料</span></a></li>
         <li class="header">信息库</li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>海关数据</span>

@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title','app')
+@section('title','用户资料')
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -7,8 +7,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Page Header
-        <small>Optional description</small>
+        用户资料
+        <small>User Profile</small>
       </h1>
     </section>
 
@@ -28,7 +28,7 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">用户资料修改</h3>
+              <h3 class="box-title">修改资料</h3>
             </div>
             <!-- /.box-header -->
 	    @include('shared._errors')
@@ -39,6 +39,11 @@
 
               <div class="box-body">
                 <div class="form-group">
+                  <label for="oldpassword">请先输入当前密码</label>
+                  <input type="password" name="oldpassword" class="form-control" id="inputOldPassword" placeholder="输入当前密码">
+                </div>
+		<p> </p>
+                <div class="form-group">
                   <label for="inputEmail1">邮箱</label>
                   <input type="email" name="email" class="form-control" id="inputEmail1" value="{{ Auth::user()->email }}" disabled>
                 </div>
@@ -47,12 +52,12 @@
                   <input type="text" name="name" class="form-control" id="inputName" value="{{ Auth::user()->name }}">
                 </div>
                 <div class="form-group">
-                  <label for="password">密码</label>
-                  <input type="password" name="password" class="form-control" id="inputPassword" placeholder="输入密码">
+                  <label for="password">新密码</label>
+                  <input type="password" name="password" class="form-control" id="inputPassword" placeholder="输入新密码">
                 </div>
                 <div class="form-group">
-                  <label for="password_confirmation">再次输入密码</label>
-                  <input type="password" name="password_confirmation" class="form-control" id="inputPasswordConfirmation" placeholder="再次输入密码">
+                  <label for="password_confirmation">再次输入新密码</label>
+                  <input type="password" name="password_confirmation" class="form-control" id="inputPasswordConfirmation" placeholder="再次输入新密码">
                 </div>
 
 

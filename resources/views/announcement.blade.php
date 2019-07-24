@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title','app')
+@section('title','网站公告')
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -7,8 +7,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Page Header
-        <small>Optional description</small>
+        网站公告
+        <small>Announcement</small>
       </h1>
     </section>
 

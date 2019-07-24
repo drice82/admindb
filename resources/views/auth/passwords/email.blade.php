@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
+  <title>{{ config('app.name') }}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -30,12 +30,12 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="#"><b>{{ config('app.name') }}</b></a>
   </div>
    @include('shared._messages')
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">发送密码重置邮件到注册邮箱</p>
 
     @include('shared._errors')
     <form action="{{ route('password.email') }}" method="post">
@@ -47,7 +47,7 @@
       <div class="row">
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">发送密码重置邮件</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">密码重置</button>
         </div>
         <!-- /.col -->
       </div>
