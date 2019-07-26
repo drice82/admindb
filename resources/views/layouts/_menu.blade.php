@@ -20,20 +20,56 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">用户菜单</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="{{ route('announcement') }}"><i class="fa fa-link"></i> <span>网站公告</span></a></li>
-        <li><a href="{{ route('profile') }}"><i class="fa fa-link"></i> <span>用户资料</span></a></li>
+        <li class="active"><a href="{{ route('announcement') }}"><i class="fa fa-bullhorn"></i> <span>网站公告</span></a></li>
+        <li><a href="{{ route('profile') }}"><i class="fa fa-gears"></i> <span>用户资料</span></a></li>
+        <li><a href="{{ route('recharge') }}"><i class="fa fa-usd"></i> <span>充值续费</span></a></li>
         <li class="header">信息库</li>
+	<li><a href="{{ route('hotel') }}"><i class="fa fa-bed"></i> <span>2000W酒店数据</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>海关数据</span>
+          <a href="#"><i class="fa  fa-bar-chart"></i> <span>中国海关数据</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">中国海关数据</a></li>
-            <li><a href="#">美国海关数据</a></li>
+            <li><a href="#">2018年</a></li>
+            <li><a href="#">2017年</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#"><i class="fa  fa-bar-chart"></i> <span>美国海关数据</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#">2018年</a></li>
+            <li><a href="#">2017年</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa  fa-bar-chart"></i> <span>日本海关数据</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#">2018年</a></li>
+            <li><a href="#">2017年</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa  fa-bar-chart"></i> <span>德国海关数据</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#">2018年</a></li>
+            <li><a href="#">2017年</a></li>
+          </ul>
+        </li>
+
       </ul>
       <!-- /.sidebar-menu -->
     </section>

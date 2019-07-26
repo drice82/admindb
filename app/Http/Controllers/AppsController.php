@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Hotel;
 use Auth;
 
 class AppsController extends Controller
@@ -13,9 +14,9 @@ class AppsController extends Controller
         $this->middleware('auth');
     }
 
-    public function app()
+    public function recharge()
     {
-        return view('layouts.app');
+        return view('recharge');
     }
 
     public function announcement()
@@ -26,6 +27,16 @@ class AppsController extends Controller
     public function profile()
     {
         return view('profile');
+    }
+
+    public function hotel(Request $request)
+    {
+        $keywords_name = $request->input('name');
+        $data = Hotel::select('Name', 'CtfId', 'Gender', 'Birthday', 'Address', 'Mobile', 'Version') -> where('Name', $keywords_name)->paginate(20);
+        $appendData = $data->appends(array(
+            'name' => $keywords_name,
+        ));
+        return view('hotel', compact('data'));
     }
 
 }
