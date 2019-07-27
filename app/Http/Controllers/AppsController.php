@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Hotel;
+use App\WebContent;
 use Auth;
 
 class AppsController extends Controller
@@ -21,7 +22,8 @@ class AppsController extends Controller
 
     public function announcement()
     {
-        return view('announcement');
+	$content = WebContent::where('key', 'announcement')->first();
+        return view('announcement')->with('content', $content->value);
     }
 
     public function profile()

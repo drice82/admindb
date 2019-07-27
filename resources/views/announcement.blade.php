@@ -35,13 +35,19 @@
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                  <b>用户等级</b> <a class="pull-right">普通用户</a>
+                  <b>用户等级</b> <a class="pull-right">
+		    @if ( Auth::user()->type ==1)
+			付费用户
+		    @else
+			普通用户
+		    @endif
+		  </a>
                 </li>
                 <li class="list-group-item">
-                  <b>等级有效期</b> <a class="pull-right">543</a>
+                  <b>等级有效期</b> <a class="pull-right">{{ Auth::user()->expire_time }}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>查询点数</b> <a class="pull-right">5</a>
+                  <b>查询点数</b> <a class="pull-right">{{ Auth::user()->point }}</a>
                 </li>
               </ul>
 
@@ -62,6 +68,7 @@
                 <!-- Post -->
                 <div class="post">
                   <p>
+		    {{ $content }}
                     Lorem ipsum represents a long-held tradition for designers,
                     typographers and the like. Some people hate it and argue for
                     its demise, but others ignore the hate as they create awesome
