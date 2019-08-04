@@ -44,7 +44,13 @@
                 </div>
 		<p> </p>
                 <div class="form-group">
-                  <label for="inputEmail1">邮箱</label>
+                  <label for="inputEmail1">邮箱
+		  @if ( Auth::user()->activated ==0)
+		     <small class="label pull-right bg-red">（未激活）</small>
+		  @else
+		     <small class="label pull-right bg-green">（已确认）</small>
+		  @endif
+		  </label>
                   <input type="email" name="email" class="form-control" id="inputEmail1" value="{{ Auth::user()->email }}" disabled>
                 </div>
                 <div class="form-group">

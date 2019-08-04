@@ -63,8 +63,8 @@ class UsersController extends Controller
         ]);
         $this->sendEmailConfirmationTo($user);
 	Auth::login($user);
-        session()->flash('success', '验证邮件已发送到你的注册邮箱上，请注意查收。');
-        return redirect()->route('app');
+        session()->flash('info', '验证邮件已发送到你的注册邮箱上，请注意查收。');
+        return redirect()->route('announcement');
     }
 
     public function update(User $user, Request $request)
@@ -111,7 +111,7 @@ class UsersController extends Controller
 
         Auth::login($user);
         session()->flash('success', '恭喜你，激活成功！');
-        return redirect()->route('app');
+        return redirect()->route('announcement');
     }
 
 }

@@ -61,7 +61,7 @@ desired effect
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">BZinfo</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">商务信息网</span>
+      <span class="logo-lg">{{ config('app.name') }}</span>
     </a>
 
     <!-- Header Navbar -->

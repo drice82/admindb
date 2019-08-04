@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title','app')
+@section('title','会员充值')
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->

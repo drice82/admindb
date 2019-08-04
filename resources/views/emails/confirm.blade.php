@@ -5,7 +5,7 @@
   <title>注册确认链接</title>
 </head>
 <body>
-  <h1>感谢您在 Weibo App 网站进行注册！</h1>
+  <h1>感谢您在{{ config('app.name') }}【商业信息网】进行注册！</h1>
 
   <p>
     请点击下面的链接完成注册：

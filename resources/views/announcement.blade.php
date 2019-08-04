@@ -37,11 +37,14 @@
                 <li class="list-group-item">
                   <b>用户等级</b> <a class="pull-right">
 		    @if ( Auth::user()->type ==1)
-			付费用户
+			高级会员
 		    @else
-			普通用户
+			普通会员
 		    @endif
 		  </a>
+		    @if ( Auth::user()->actived ==1 )
+		    未激活
+		    @endif
                 </li>
                 <li class="list-group-item">
                   <b>等级有效期</b> <a class="pull-right">{{ Auth::user()->expire_time }}</a>

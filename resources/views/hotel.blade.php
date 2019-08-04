@@ -36,7 +36,7 @@
                   <input type="text" name="name" class="form-control" placeholder="姓名">
                 </div>
                 <div class="input-group-btn">
-                  <button type="submit" name="submit" class="btn btn-warning btn-flat"><i class="fa fa-search"></i>
+                  <button type="submit" name="submit" class="btn btn-primary btn-flat"><i class="fa fa-search"></i>
                   </button>
                 </div>
 		</form>
