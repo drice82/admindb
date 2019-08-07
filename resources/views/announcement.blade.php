@@ -36,25 +36,36 @@
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
                   <b>用户等级</b> <a class="pull-right">
-		    @if ( Auth::user()->type ==1)
-			高级会员
+                    @if ( Auth::user()->activated ==0 )
+                        <small class="label pull-right bg-red">未激活用户</small>
+		    @elseif ( Auth::user()->type ==1)
+			<small class="label pull-right bg-green">金牌会员</small>
 		    @else
-			普通会员
+			<small class="label pull-right bg-yellow">普通会员</small>
 		    @endif
 		  </a>
-		    @if ( Auth::user()->actived ==1 )
-		    未激活
-		    @endif
                 </li>
                 <li class="list-group-item">
-                  <b>等级有效期</b> <a class="pull-right">{{ Auth::user()->expire_time }}</a>
+                  <b>等级有效期</b> <a class="pull-right">
+                    @if ( Auth::user()->activated ==1 and Auth::user()->type ==1)
+			{{ Auth::user()->expire_time }}
+                    @endif
+		  </a>
                 </li>
                 <li class="list-group-item">
-                  <b>查询点数</b> <a class="pull-right">{{ Auth::user()->point }}</a>
+                  <b>查询点数</b> <a class="pull-right">
+                    @if ( Auth::user()->activated ==0 )
+                        请验证邮箱获得查询点数
+                    @elseif ( Auth::user()->type ==1)
+                        无限制
+                    @else
+                        {{ Auth::user()->point }}
+                    @endif
+		  </a>
                 </li>
               </ul>
 
-              <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+              <a href="{{ route('recharge') }}" class="btn btn-primary btn-block"><b>升级/续费金牌会员</b></a>
             </div>
             <!-- /.box-body -->
           </div>
@@ -72,11 +83,6 @@
                 <div class="post">
                   <p>
 		    {{ $content }}
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans.
                   </p>
                   <input class="form-control input-sm" type="text" placeholder="Type a comment">
                 </div>

@@ -21,7 +21,7 @@
         <li class="header">用户菜单</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ route('announcement') }}"><i class="fa fa-bullhorn"></i> <span>网站公告</span></a></li>
-        <li><a href="{{ route('profile') }}"><i class="fa fa-gears"></i> <span>用户资料</span></a></li>
+        <li><a href="{{ route('profile') }}"><i class="fa fa-user"></i> <span>用户资料</span></a></li>
         <li><a href="{{ route('recharge') }}"><i class="fa fa-usd"></i> <span>会员充值</span></a></li>
         <li class="header">信息库</li>
 	<li><a href="{{ route('hotel') }}"><i class="fa fa-bed"></i> <span>2000W酒店数据</span></a></li>

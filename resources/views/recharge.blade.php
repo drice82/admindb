@@ -28,7 +28,7 @@
           <div class="box box-primary">
             <div class="box-header with-border">
               <i class="fa fa-key"></i>
-              <h3 class="box-title">高级会员开通续费</h3>
+              <h3 class="box-title">金牌会员开通续费</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -40,19 +40,19 @@
                   <div class="radio">
                     <label>
                       <input type="radio" name="optionsRadios" id="optionsRadios1" value="90" checked>
-                      付费会员一季度（90天）
+                      金牌会员一季度（90天）
                     </label>
                   </div>
                   <div class="radio">
                     <label>
                       <input type="radio" name="optionsRadios" id="optionsRadios2" value="182">
-                      付费会员半年（182天）
+                      金牌会员半年（182天）
                     </label>
                   </div>
                   <div class="radio">
                     <label>
                       <input type="radio" name="optionsRadios" id="optionsRadios3" value="365" disabled>
-                      付费会员一年（365天）
+                      金牌会员一年（365天）
                     </label>
                   </div>
                 </div>
