@@ -29,3 +29,6 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+Route::get('payment/payzcy', 'PaymentController@payzcy')->name('payment.payzcy');
+Route::get('payment/notifyzcy', 'PaymentController@notifyzcy')->name('payment.notifyzcy');
+Route::get('payment/returnzcy', 'PaymentController@returnzcy')->name('payment.returnzcy');

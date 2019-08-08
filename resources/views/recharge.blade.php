@@ -31,27 +31,33 @@
               <h3 class="box-title">金牌会员开通续费</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <form role="form">
+            <div class="box-body" >
+              <form id="zcypay" role="form" action="/payment/payzcy" target="_blank" method="get">
 		<li> 如遇支付通道维护，请改用其他平台或另一个支付通道。</li>
 
                 <!-- radio -->
                 <div class="form-group">
                   <div class="radio">
                     <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="90" checked>
+                      <input type="radio" name="WIDtotal_fee" value="1" checked>
+                      金牌会员一季度（30天）
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="WIDtotal_fee" value="2" checked>
                       金牌会员一季度（90天）
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="182">
+                      <input type="radio" name="WIDtotal_fee" value="3">
                       金牌会员半年（182天）
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios3" value="365" disabled>
+                      <input type="radio" name="WIDtotal_fee" value="4">
                       金牌会员一年（365天）
                     </label>
                   </div>
@@ -60,10 +66,10 @@
                 <!-- select -->
                 <div class="form-group">
                   <label>Select</label>
-                  <select class="form-control">
-                    <option>支付宝</option>
-                    <option>微信</option>
-                    <option>QQ支付</option>
+                  <select class="form-control" name="type" >
+                    <option value="alipay">支付宝</option>
+                    <option value="wxpay">微信</option>
+                    <option value="qqpay">QQ支付</option>
                   </select>
                 </div>
               <div class="box-footer">
