@@ -39,25 +39,25 @@
                 <div class="form-group">
                   <div class="radio">
                     <label>
-                      <input type="radio" name="WIDtotal_fee" value="1" checked>
+                      <input type="radio" name="WIDtotal_fee" value="{{ getenv('PAY_FEE1') }}" checked>
                       金牌会员一季度（30天）
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="WIDtotal_fee" value="2" checked>
+                      <input type="radio" name="WIDtotal_fee" value="{{ getenv('PAY_FEE2') }}" checked>
                       金牌会员一季度（90天）
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="WIDtotal_fee" value="3">
+                      <input type="radio" name="WIDtotal_fee" value="{{ getenv('PAY_FEE3') }}">
                       金牌会员半年（182天）
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="WIDtotal_fee" value="4">
+                      <input type="radio" name="WIDtotal_fee" value="{{ getenv('PAY_FEE4') }}">
                       金牌会员一年（365天）
                     </label>
                   </div>
