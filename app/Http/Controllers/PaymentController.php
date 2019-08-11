@@ -78,6 +78,7 @@ class PaymentController extends Controller
 		//写入用户表
 		$user->expire_time = $user_exp_time;
 		$user->type = 1;
+		$user->balance += $data['money'];
 		$user->save();
 		//记录订单
 		Order::create([
@@ -85,6 +86,7 @@ class PaymentController extends Controller
 		    'user_id' => $user_id,
 		    'trade_no'  => $data['trade_no'],
 		    'out_trade_no' => $data['out_trade_no'],
+		    'payment_type' => $data['type'],
 		]);
 		echo 'success';
 	    }

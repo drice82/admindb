@@ -8,7 +8,7 @@ class Order extends Model
 {
     //
     protected $fillable = [
-        'money', 'trade_no', 'out_trade_no', 'type', 'user_id',
+        'money', 'trade_no', 'out_trade_no', 'type', 'user_id', 'payment_type',
     ];
 
 }

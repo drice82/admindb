@@ -63,6 +63,11 @@
                     @endif
 		  </a>
                 </li>
+                <li class="list-group-item">
+                  <b>账户余额</b> <a class="pull-right">
+                    {{ sprintf("%.2f", Auth::user()->balance) }} ￥
+                  </a>
+                </li>
               </ul>
 
               <a href="{{ route('recharge') }}" class="btn btn-primary btn-block"><b>升级/续费金牌会员</b></a>
