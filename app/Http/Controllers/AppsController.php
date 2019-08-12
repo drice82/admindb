@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Hotel;
+use App\Order;
 use App\WebContent;
 use Auth;
 
@@ -17,7 +18,8 @@ class AppsController extends Controller
 
     public function recharge()
     {
-        return view('recharge');
+	$data = Order::select('money', 'created_at', 'payment_type') -> where ('user_id', 10)->orderBy('id', 'desc') -> paginate(5);
+        return view('recharge', compact('data'));
     }
 
     public function announcement()

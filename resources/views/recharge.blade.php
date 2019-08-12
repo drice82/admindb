@@ -86,69 +86,37 @@
         <div class="col-md-6">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">订单记录</h3>
+              <i class="fa fa-reorder"></i>
+ 	      <h3 class="box-title">订单记录</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <table class="table table-bordered">
+	    <div class="box-body">
+	      <table class="table table-bordered">
                 <tr>
                   <th>支付时间</th>
                   <th>金额</th>
                   <th style="width: 80px">支付方式</th>
                   <th style="width: 40px">状态</th>
-                </tr>
+		</tr>
+		@if ($data->first())
+		@foreach ($data as $element)
+		{{-- {{dd($element)}} --}}
                 <tr>
-                  <td>1.</td>
-                  <td>Update software</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-red">55%</span></td>
-                </tr>
-                <tr>
-                  <td>2.</td>
-                  <td>Clean database</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-yellow">70%</span></td>
-                </tr>
-                <tr>
-                  <td>3.</td>
-                  <td>Cron job running</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-light-blue">30%</span></td>
-                </tr>
-                <tr>
-                  <td>4.</td>
-                  <td>Fix and squish bugs</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-green">90%</span></td>
-                </tr>
-              </table>
-            </div>
+                  <td>{{$element->created_at}}</td>
+                  <td>{{sprintf("%.2f", $element->money)}}元</td>
+                  <td>{{$element->payment_type}}</td>
+                  <td><span class="badge bg-green">完成</span></td>
+		</tr>
+	        @endforeach
+	      </table>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-              <ul class="pagination pagination-sm no-margin pull-right">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">&raquo;</a></li>
+	      <ul class="pagination pagination-sm no-margin pull-right">
+		{!! $data->render() !!}
               </ul>
-            </div>
+	    </div>
+	    @else
+	    @endif
           </div>
           <!-- /.box -->
         </div>
