@@ -116,6 +116,7 @@
               </ul>
 	    </div>
 	    @else
+	    </table>
 	    @endif
           </div>
           <!-- /.box -->

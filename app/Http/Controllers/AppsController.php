@@ -18,7 +18,7 @@ class AppsController extends Controller
 
     public function recharge()
     {
-	$data = Order::select('money', 'created_at', 'payment_type') -> where ('user_id', 10)->orderBy('id', 'desc') -> paginate(5);
+	$data = Order::select('money', 'created_at', 'payment_type') -> where ('user_id', Auth::user()->id)->orderBy('id', 'desc') -> paginate(5);
         return view('recharge', compact('data'));
     }
 

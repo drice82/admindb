@@ -56,17 +56,29 @@
         <input type="password" name="password_confirmation" class="form-control" placeholder="再次输入密码" value="{{ old('password_confirmation')}}">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
+
       <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> 同意 <a href="#">使用协议</a>
+	<div class="col-xs-6">
+	  <div class="form-group has-feedback">
+	    <input id="captcha" class="form-control" name="captcha" placeholder="验证码">
+	  </div>
+	</div>
+	<div class="col-xs-1">
+	  <img class="thumbnail captcha" src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
+	</div>
+      </div>
+
+      <div class="row">
+	<div class="col-xs-8">
+	  <div class="checkbox icheck">
+	    <label>
+               注册即表示同意 <a href="#">使用协议</a>
             </label>
           </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">注册</button>
         </div>
         <!-- /.col -->
       </div>
