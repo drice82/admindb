@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\WebContent;
 
 class WebContentSeeder extends Seeder
 {
@@ -13,9 +12,10 @@ class WebContentSeeder extends Seeder
     public function run()
     {
         //
-	DB::table('web_contents')->insert([
-	    'key' => 'announcement',
-	    'value' => 'announcement'
-	]);
+        DB::table('web_contents')->insert([
+            'key' => 'announcement',
+            'value' => 'announcement'
+        ]);
+
     }
 }
