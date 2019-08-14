@@ -23,7 +23,23 @@
             <div class="box-header">
               <h3 class="box-title">Data Table With Full Features</h3>
             </div>
-            <!-- /.box-header -->
+	    <!-- /.box-header -->
+
+            <div class="box-body">
+              <div class="row">
+                <form class="search-form">
+                <div class="col-xs-5">
+                  <input type="text" name="enterprise" class="form-control" placeholder="姓名">
+                </div>
+                <div class="input-group-btn">
+                  <button type="submit" name="submit" class="btn btn-primary btn-flat"><i class="fa fa-search"></i>
+                  </button>
+                </div>
+                </form>
+              </div>
+            </div>
+            <!-- /.box-body -->
+
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>

@@ -32,8 +32,8 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">2018年</a></li>
-            <li><a href="#">2017年</a></li>
+            <li><a href="{{ route('cn2014') }}">2014年</a></li>
+            <li><a href="#">2013年</a></li>
           </ul>
         </li>
         <li class="treeview">
