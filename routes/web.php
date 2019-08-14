@@ -32,4 +32,4 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 Route::get('payment/payzcy', 'PaymentController@payzcy')->name('payment.payzcy');
 Route::get('payment/notifyzcy', 'PaymentController@notifyzcy')->name('payment.notifyzcy');
 Route::get('payment/returnzcy', 'PaymentController@returnzcy')->name('payment.returnzcy');
-//Route::get('test', 'PaymentController@test');
+Route::get('cn2014', 'HgdbController@cn2014');

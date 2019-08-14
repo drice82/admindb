@@ -96,7 +96,7 @@
                   <th>支付时间</th>
                   <th>金额</th>
                   <th style="width: 80px">支付方式</th>
-                  <th style="width: 40px">状态</th>
+                  <th style="width: 80px">状态</th>
 		</tr>
 		@if ($data->first())
 		@foreach ($data as $element)
