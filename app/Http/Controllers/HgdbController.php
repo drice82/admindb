@@ -18,7 +18,7 @@ class HgdbController extends Controller
 		$enterprise = $request->input('enterprise');
 		$hs_id = $request->input('hs_id');
 		$data = cn2014::select('imex', 'trademode', 'country', 'hs_id', 'hs_name', 'value', 'quantity', 'price', 'enterprise')
-			-> where('enterprise', 'like', '%'. $enterprise . '%' )
+			-> where('enterprise', 'like', $enterprise )
 			->paginate(20);
 		$appendData = $data->appends(array(
 			'enterprise' => $enterprise,
