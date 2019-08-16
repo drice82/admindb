@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+//use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use App\cn2014;
+use App\hscode;
+use DB;
 
 class HgdbController extends Controller
 {
@@ -18,9 +20,7 @@ class HgdbController extends Controller
 		$enterprise = $request->input('enterprise');
 		if ($enterprise == NULL ) {$enterprise = '厦门通士达照明有限公司';}
 		$hs_id = $request->input('hs_id');
-		$data = cn2014::select('imex_id', 'imex', 'trademode', 'country', 'hs_id', 'hs_name', 'value', 'quantity', 'unit', 'price', 'enterprise')
-			-> where('enterprise', 'like', $enterprise )
-			->paginate(20);
+		$data = DB::table('cn_2014')->where('enterprise', 'like', $enterprise)->paginate(20);
 		$appendData = $data->appends(array(
 			'enterprise' => $enterprise,
 		));

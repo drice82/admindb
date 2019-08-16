@@ -45,8 +45,9 @@
                 <thead>
                 <tr>
                   <th>进出口</th>
-                  <th>企业</th>
-		  <th>HS编码：货品</th>
+                  <th>企业名称及代码</th>
+		  <th>商品名称及HS编码</th>
+		  <th>贸易方式</th>
 		  <th>参考单价</th>
 		  <th>数量</th>
 		  <th>单位</th>
@@ -60,13 +61,14 @@
 		{{-- {{dd($e)}} --}}
                 <tr>
                   <td>@if ($e->imex_id) <span class="badge bg-green">进口</span> @else <span class="badge bg-red">出口</span> @endif </td>
-                  <td>{{$e->enterprise}}</td>
-		  <td>{{$e->hs_id}} : {{$e->hs_name}}</td>
-		  <td>{{$e->price}}</td>
+                  <td>{{$e->enterprise}}[{{$e->enterprise_id}}]</td>
+		  <td>{{DB::table('hs_2016')->where ('hs', 'like', $e->hs_id . '__')->value('hs_name')}}[{{$e->hs_id}}]</td>
+		  <td>{{DB::table('trade_code')->where ('code',$e->trademode_id)->value('name')}} </td>
+		  <td>@if ($e->quantity==0) {{$e->value}} @else {{round($e->value/$e->quantity,2)}} @endif <i class="fa fa-fw fa-usd"></i></td>
 		  <td>{{$e->quantity}}</td>
-		  <td>{{$e->unit}}</td>
+		  <td>{{DB::table('unit_code')->where ('code', DB::table('hs_2016')->where('hs', 'like', $e->hs_id . '__')->value('unit1'))->value('name')}}</td>
 		  <td>{{$e->value}} <i class="fa fa-fw fa-usd"></i></td>
-		  <td>{{$e->country}}</td>
+		  <td>{{DB::table('country_code')->where('id', $e->country_id)->value('name')}}</td>
 		</tr>
 		@endforeach
                 </tbody>
