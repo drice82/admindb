@@ -24,16 +24,16 @@
         <li><a href="{{ route('profile') }}"><i class="fa fa-user"></i> <span>用户资料</span></a></li>
         <li><a href="{{ route('recharge') }}"><i class="fa fa-usd"></i> <span>会员充值</span></a></li>
         <li class="header">信息库</li>
-	<li><a href="{{ route('hotel') }}"><i class="fa fa-bed"></i> <span>2000W酒店数据</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa  fa-bar-chart"></i> <span>中国海关数据</span>
+          <a href="#"><i class="fa  fa-bar-chart"></i> <span>中国海关进出口数据</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('cn2014') }}">2014年</a></li>
-            <li><a href="#">2013年</a></li>
+	  <ul class="treeview-menu">
+	    <li><a href="#">2015-2016年</a></li>
+            <li><a href="{{ route('cn2014') }}">2007-2014年</a></li>
+            <li><a href="#">2000-2006年</a></li>
           </ul>
         </li>
         <li class="treeview">

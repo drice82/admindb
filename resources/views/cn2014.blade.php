@@ -17,29 +17,55 @@
 
     <!-- Main content -->
     <section class="content">
+
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">请输入完整企业名称</h3>
-            </div>
 	    <!-- /.box-header -->
-
             <div class="box-body">
               <div class="row">
                 <form class="search-form">
-                <div class="col-xs-5">
-                  <input type="text" name="enterprise" class="form-control" placeholder="企业名称">
+
+                <div class="col-xs-2">
+                  <select class="form-control" name="year" >
+                    <option value="cn_2014">2014年</option>
+                    <option value="cn_2013">2013年</option>
+                    <option value="cn_2012">2012年</option>
+                  </select>
+                </div>
+
+		<div class="col-xs-2">
+                  <select class="form-control" name="imex" >
+                    <option value="%">进口+出口</option>
+                    <option value="1">进口</option>
+                    <option value="0">出口</option>
+                  </select>
+                </div>
+
+		<div class="col-xs-4">
+                  <input type="text" name="enterprise" class="form-control" placeholder="完整企业名称">
+                </div>
+		<div class="col-xs-2">
+                  <input type="text" name="hs" class="form-control" placeholder="8位HS编码">
                 </div>
                 <div class="input-group-btn">
-                  <button type="submit" name="submit" class="btn btn-primary btn-flat"><i class="fa fa-search"></i>
+                  <button type="submit" class="btn btn-primary btn-flat"><i class="fa fa-search"></i>
                   </button>
                 </div>
                 </form>
               </div>
             </div>
             <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
 
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -48,11 +74,11 @@
                   <th>企业名称及代码</th>
 		  <th>商品名称及HS编码</th>
 		  <th>贸易方式</th>
-		  <th>参考单价</th>
-		  <th>数量</th>
-		  <th>单位</th>
-		  <th>总额</th>
 		  <th>国家/地区</th>
+		  <th><b class="pull-right">参考单价</b></th>
+		  <th><b class="pull-right">数量</b></th>
+		  <th>单位</th>
+		  <th><b class="pull-right">总额</b></th>
                 </tr>
 		</thead>
 		@if ($data->first())
@@ -64,11 +90,11 @@
                   <td>{{$e->enterprise}}[{{$e->enterprise_id}}]</td>
 		  <td>{{DB::table('hs_2016')->where ('hs', 'like', $e->hs_id . '__')->value('hs_name')}}[{{$e->hs_id}}]</td>
 		  <td>{{DB::table('trade_code')->where ('code',$e->trademode_id)->value('name')}} </td>
-		  <td>@if ($e->quantity==0) {{$e->value}} @else {{round($e->value/$e->quantity,2)}} @endif <i class="fa fa-fw fa-usd"></i></td>
-		  <td>{{$e->quantity}}</td>
-		  <td>{{DB::table('unit_code')->where ('code', DB::table('hs_2016')->where('hs', 'like', $e->hs_id . '__')->value('unit1'))->value('name')}}</td>
-		  <td>{{$e->value}} <i class="fa fa-fw fa-usd"></i></td>
 		  <td>{{DB::table('country_code')->where('id', $e->country_id)->value('name')}}</td>
+		  <td><b class="pull-right">@if ($e->quantity==0) {{$e->value}} @else {{round($e->value/$e->quantity,2)}} @endif <i class="fa fa-fw fa-usd"></i></b></td>
+		  <td><b class="pull-right">{{$e->quantity}}</b></td>
+		  <td>{{DB::table('unit_code')->where ('code', DB::table('hs_2016')->where('hs', 'like', $e->hs_id . '__')->value('unit1'))->value('name')}}</td>
+		  <td><b class="pull-right">{{$e->value}} <i class="fa fa-fw fa-usd"></i></b> </td>
 		</tr>
 		@endforeach
                 </tbody>

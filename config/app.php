@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'email' => env('APP_EMAIL', 'noreply@example.com'),
     /*
     |--------------------------------------------------------------------------
     | Application Name
