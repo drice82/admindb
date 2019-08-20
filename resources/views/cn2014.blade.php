@@ -27,28 +27,32 @@
                 <form class="search-form">
 
                 <div class="col-xs-2">
-                  <select class="form-control" name="year" >
-                    <option value="cn_2014">2014年</option>
-                    <option value="cn_2013">2013年</option>
-                    <option value="cn_2012">2012年</option>
-                  </select>
+                  <select class="form-control" name="year">
+                    <option value="cn_2014" @if (old('year')=="cn_2014") selected @endif>2014年</option>
+                    <option value="cn_2013" @if (old('year')=="cn_2013") selected @endif>2013年</option>
+                    <option value="cn_2012" @if (old('year')=="cn_2012") selected @endif>2012年</option>
+                    <option value="cn_2011" @if (old('year')=="cn_2011") selected @endif>2011年</option>
+                    <option value="cn_2010" @if (old('year')=="cn_2010") selected @endif>2010年</option>
+		    <option value="cn_2009" @if (old('year')=="cn_2009") selected @endif>2009年</option>
+                    <option value="cn_2008" @if (old('year')=="cn_2008") selected @endif>2008年</option>
+                    <option value="cn_2007" @if (old('year')=="cn_2007") selected @endif>2007年</option>
+		  </select>
                 </div>
 
 		<div class="col-xs-2">
-                  <select class="form-control" name="imex" >
-                    <option value="%">进口+出口</option>
-                    <option value="1">进口</option>
-                    <option value="0">出口</option>
+                  <select class="form-control" name="imex">
+                    <option value="1" @if (old('imex')=="1") selected @endif>进口</option>
+                    <option value="0" @if (old('imex')=="0") selected @endif>出口</option>
                   </select>
                 </div>
 
 		<div class="col-xs-4">
-                  <input type="text" name="enterprise" class="form-control" placeholder="完整企业名称">
+                  <input type="text" name="enterprise" class="form-control" placeholder="输入完整中文企业名称，%号代替任意长度的字符" value="{{old('enterprise')}}">
                 </div>
 		<div class="col-xs-2">
-                  <input type="text" name="hs" class="form-control" placeholder="8位HS编码">
-                </div>
-                <div class="input-group-btn">
+		  <input type="text" name="hs" class="form-control" placeholder="8位HS编码（可选）" value="{{old('hs')}}">
+		</div>
+		<div class="input-group-btn">
                   <button type="submit" class="btn btn-primary btn-flat"><i class="fa fa-search"></i>
                   </button>
                 </div>
@@ -78,7 +82,7 @@
 		  <th><b class="pull-right">参考单价</b></th>
 		  <th><b class="pull-right">数量</b></th>
 		  <th>单位</th>
-		  <th><b class="pull-right">总额</b></th>
+		  <th><b class="pull-right">金额</b></th>
                 </tr>
 		</thead>
 		@if ($data->first())
