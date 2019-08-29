@@ -23,7 +23,7 @@
         <li class="active"><a href="{{ route('announcement') }}"><i class="fa fa-bullhorn"></i> <span>网站公告</span></a></li>
         <li><a href="{{ route('profile') }}"><i class="fa fa-user"></i> <span>用户资料</span></a></li>
         <li><a href="{{ route('recharge') }}"><i class="fa fa-usd"></i> <span>会员充值</span></a></li>
-        <li class="header">信息库</li>
+	<li class="header">信息库</li>
         <li class="treeview">
           <a href="#"><i class="fa  fa-bar-chart"></i> <span>中国海关进出口数据</span>
             <span class="pull-right-container">
@@ -31,9 +31,8 @@
               </span>
           </a>
 	  <ul class="treeview-menu">
-	    <li><a href="#">2015-2016年</a></li>
-            <li><a href="{{ route('cn2014') }}">2007-2014年</a></li>
-            <li><a href="#">2000-2006年</a></li>
+	    <li><a href="{{ route('cn2014') }}">2000-2016年</a></li>
+            <li><a href="#">数据查询</a></li>
           </ul>
         </li>
         <li class="treeview">
