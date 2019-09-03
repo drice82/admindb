@@ -39,12 +39,17 @@ class HgdbController extends Controller
 			"cn_2010", "cn_2011", "cn_2012", "cn_2013", "cn_2014",
 			"cn_2015", "cn_2016"];
 		if (!in_array($year, $existing_tables)){ $year = "cn_2016"; } 
-
-		if ($enterprise == NULL ) {$enterprise = '%';}
+		if ($enterprise ==NULL) {$enterprise_id = '%';}
 		else {
-			$value_im = DB::table($year)->where('enterprise', 'like', $enterprise)->where('imex_id', '1')->sum('value');
-			$value_ex = DB::table($year)->where('enterprise', 'like', $enterprise)->where('imex_id', '0')->sum('value');
+			$enterprise_id = DB::table('info_enterprise_code')->where('enterprise', 'like', $enterprise)->value('enterprise_id');
 		}
+
+//		if ($enterprise == NULL ) {$enterprise = '%';}
+//		else {
+//			$value_im = DB::table($year)->where('enterprise', 'like', $enterprise)->where('imex_id', '1')->sum('value');
+//			$value_ex = DB::table($year)->where('enterprise', 'like', $enterprise)->where('imex_id', '0')->sum('value');
+//		}
+
 		if ($hs ==NULL) {$hs = '%';}	
 
 		if ( $request->input('enterprise')==NULL and $request->input('hs')==NULL){
@@ -55,7 +60,7 @@ class HgdbController extends Controller
 			case "1":
 				$data = DB::table($year)
 					->where('hs_id','like', substr($hs,0,8).'%')
-					->where('enterprise', 'like', $enterprise)
+					->where('enterprise_id', 'like', $enterprise_id)
 					->where('imex_id','1')
 					->orderby('country_id')
 					->paginate(20);
@@ -63,7 +68,7 @@ class HgdbController extends Controller
 			default:
 				$data = DB::table($year)
 					->where('hs_id', 'like', substr($hs,0,8).'%')
-					->where('enterprise', 'like', $enterprise)
+					->where('enterprise_id', 'like', $enterprise_id)
 					->where('imex_id','0')
 					->paginate(20);
 			}
