@@ -81,29 +81,6 @@
               <h3 class="box-title">统计</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>进出口总额</th>
-                  <th>出口总额</th>
-                  <th>进口总额</th>
-                  <th>itme1</th>
-                  <th>item2</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td> USD</td>
-                  <td> USD</td>
-                  <td> USD</td>
-                  <td> </td>
-                  <td> </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.box-body -->
           </div>
           <!-- /.box -->
         </div>
@@ -144,10 +121,10 @@
 		  <td>{{DB::table('hs_2016')->where ('hs', 'like', $e->hs_id . '__')->value('hs_name')}}[{{$e->hs_id}}]</td>
 		  <td>{{DB::table('info_trade_code')->where ('code',$e->trademode_id)->value('name')}} </td>
 		  <td>{{DB::table('info_country_code')->where('id', $e->country_id)->value('name')}}</td>
-		  <td><b class="pull-right">@if ($e->quantity==0) {{$e->value}} @else {{round($e->value/$e->quantity,2)}} @endif <i class="fa fa-fw fa-usd"></i></b></td>
+		  <td><b class="pull-right">@if ($e->quantity==0) {{number_format($e->value,2)}} @else {{number_format($e->value/$e->quantity,2)}} @endif <i class="fa fa-fw fa-usd"></i></b></td>
 		  <td><b class="pull-right">{{$e->quantity}}</b></td>
 		  <td>{{DB::table('info_unit_code')->where ('code', DB::table('hs_2016')->where('hs', 'like', $e->hs_id . '__')->value('unit1'))->value('name')}}</td>
-		  <td><b class="pull-right">{{$e->value}} <i class="fa fa-fw fa-usd"></i></b> </td>
+		  <td><b class="pull-right">{{number_format($e->value,0)}} <i class="fa fa-fw fa-usd"></i></b> </td>
 		</tr>
 		@endforeach
                 </tbody>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Top Navigation</title>
+  <title>@yield('title', 'web title')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -45,8 +45,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/main">中国海关进出口数据 <span class="sr-only">(current)</span></a></li>
-	    <li><a href="#">注册</a></li>
+            <li><a href="/main">中国海关进出口数据 </a></li>
+	    <li><a href="{{route('home_entinfo')}}">企业进出口查询</a></li>
 	    <li><a href="#">登录</a></li>
           </ul>
         </div>
