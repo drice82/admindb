@@ -11,13 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('recharge', 'AppsController@recharge')->name('recharge');
 Route::get('announcement', 'AppsController@announcement')->name('announcement');
-// Route::get('hotel', 'AppsController@hotel')->name('hotel');
 Route::get('profile', 'AppsController@profile')->name('profile');
 Route::get('signup', 'UsersController@create')->name('signup');
 Route::resource('users', 'UsersController');
@@ -34,5 +29,6 @@ Route::get('payment/notifyzcy', 'PaymentController@notifyzcy')->name('payment.no
 Route::get('payment/returnzcy', 'PaymentController@returnzcy')->name('payment.returnzcy');
 Route::get('SearchCN', 'HgdbController@cn2014')->name('cn2014');
 Route::get('test', 'MainController@test')->name('test');
-Route::get('main', 'MainController@home_main')->name('home_main');
+#Route::get('/', 'MainController@home_main')->name('index'); 
+Route::get('/', 'MainController@home_main')->name('home_main');
 Route::get('entinfo', 'MainController@home_entinfo')->name('home_entinfo');

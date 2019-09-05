@@ -45,7 +45,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/main">中国海关进出口数据 </a></li>
+            <li><a href="{{route('home_main')}}">中国海关进出口数据 </a></li>
 	    <li><a href="{{route('home_entinfo')}}">企业进出口查询</a></li>
           </ul>
         </div>
