@@ -1,7 +1,8 @@
-composer install
-php artisan migrate
-php artisan db:seed
-php artisan key:generate
+## Initial 
+composer install </br>
+php artisan migrate </br>
+php artisan db:seed </br>
+php artisan key:generate </br>
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
