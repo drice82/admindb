@@ -1,7 +1,7 @@
 composer install
 php artisan migrate
 php artisan db:seed
-
+php artisan key:generate
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
