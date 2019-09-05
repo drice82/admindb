@@ -43,6 +43,7 @@ class MainController extends Controller
 			else {
 				//有输入企业名，但是没匹配到
 				$enterprise_id = array();
+				$input_ent = false;
 			}
 		}
 		$data = array();	
@@ -55,6 +56,7 @@ class MainController extends Controller
 
 			$query = DB::table($year);
 			$query->wherein('enterprise_id', $enterprise_id);
+			if ($hs) {$query->where('hs_id', 'like', substr($hs,0,8).'%');}
 			$data[$year . '_ex'] = $query->where('imex_id', 0)->sum('value');
 		}
 		}

@@ -121,7 +121,7 @@
 		  <td>{{DB::table('hs_2016')->where ('hs', 'like', $e->hs_id . '__')->value('hs_name')}}[{{$e->hs_id}}]</td>
 		  <td>{{DB::table('info_trade_code')->where ('code',$e->trademode_id)->value('name')}} </td>
 		  <td>{{DB::table('info_country_code')->where('id', $e->country_id)->value('name')}}</td>
-		  <td><b class="pull-right">@if ($e->quantity==0) {{number_format($e->value,2)}} @else {{number_format($e->value/$e->quantity,2)}} @endif <i class="fa fa-fw fa-usd"></i></b></td>
+		  <td><b class="pull-right">@if ($e->quantity==0) -  @else {{number_format($e->value/$e->quantity,2)}} @endif <i class="fa fa-fw fa-usd"></i></b></td>
 		  <td><b class="pull-right">{{$e->quantity}}</b></td>
 		  <td>{{DB::table('info_unit_code')->where ('code', DB::table('hs_2016')->where('hs', 'like', $e->hs_id . '__')->value('unit1'))->value('name')}}</td>
 		  <td><b class="pull-right">{{number_format($e->value,0)}} <i class="fa fa-fw fa-usd"></i></b> </td>

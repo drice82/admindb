@@ -24,7 +24,7 @@
                 <form class="search-form">
 
 		<div class="col-xs-6">
-                  <input type="text" name="enterprise" class="form-control" placeholder="输入中文企业名称" value="{{old('enterprise')}}">
+                  <input type="text" name="enterprise" class="form-control" placeholder="输入完整中文企业名称（必填）" value="{{old('enterprise')}}">
                 </div>
 		<div class="col-xs-4">
 		  <input type="text" name="hs" class="form-control" placeholder="8位HS编码（可选）" value="{{old('hs')}}">
@@ -55,132 +55,135 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>年份</th>
+                  <th>年度</th>
                   <th>进口总额</th>
-                  <th>同比</th>
+                  <th>同比增长</th>
                   <th>出口总额</th>
-                  <th>同比</th>
+                  <th>同比增长</th>
                 </tr>
                 </thead>
 		<tbody>
 		@if (!empty($data))
 		<tr>
                   <td>2016年</td>
-                  <td>{{ $data['cn_2016_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2016_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2016_im'],0)}} USD</td>
+		  <td> @if ($data['cn_2015_im']==0) - % 
+		  	@else
+			  @if ($data['cn_2016_im']>$data['cn_2015_im']) <span class="description-percentage text-red"><i class="fa fa-caret-up"></i> @else <span class="description-percentage text-green"><i class="fa fa-caret-down"></i> @endif {{sprintf("%01.2f",(($data['cn_2016_im']/$data['cn_2015_im']-1)*100)) }}% </span>
+			@endif </td>
+                  <td>{{ number_format($data['cn_2016_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2015_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2016_ex']/$data['cn_2015_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2015年</td>
-                  <td>{{ $data['cn_2015_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2015_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2015_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2014_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2015_im']/$data['cn_2014_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2015_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2014_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2015_ex']/$data['cn_2014_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2014年</td>
-                  <td>{{ $data['cn_2014_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2014_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2014_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2013_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2014_im']/$data['cn_2013_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2014_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2013_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2014_ex']/$data['cn_2013_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2013年</td>
-                  <td>{{ $data['cn_2013_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2013_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2013_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2012_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2013_im']/$data['cn_2012_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2013_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2012_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2013_ex']/$data['cn_2012_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2012年</td>
-                  <td>{{ $data['cn_2012_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2012_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2012_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2011_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2012_im']/$data['cn_2011_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2012_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2011_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2012_ex']/$data['cn_2011_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2011年</td>
-                  <td>{{ $data['cn_2011_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2011_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2011_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2010_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2011_im']/$data['cn_2010_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2011_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2010_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2011_ex']/$data['cn_2010_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2010年</td>
-                  <td>{{ $data['cn_2010_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2010_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2010_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2009_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2010_im']/$data['cn_2009_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2010_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2009_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2010_ex']/$data['cn_2009_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2009年</td>
-                  <td>{{ $data['cn_2009_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2009_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2009_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2008_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2009_im']/$data['cn_2008_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2009_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2008_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2009_ex']/$data['cn_2008_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2008年</td>
-                  <td>{{ $data['cn_2008_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2008_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2008_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2007_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2008_im']/$data['cn_2007_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2008_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2007_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2008_ex']/$data['cn_2007_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2007年</td>
-                  <td>{{ $data['cn_2007_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2007_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2007_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2006_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2007_im']/$data['cn_2006_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2007_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2006_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2007_ex']/$data['cn_2006_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2006年</td>
-                  <td>{{ $data['cn_2006_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2006_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2006_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2005_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2006_im']/$data['cn_2005_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2006_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2005_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2006_ex']/$data['cn_2005_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2005年</td>
-                  <td>{{ $data['cn_2005_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2005_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2005_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2004_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2005_im']/$data['cn_2004_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2005_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2004_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2005_ex']/$data['cn_2004_ex']-1)*100)) }}% @endif </td>
 		</tr>
 	        <td>2004年</td>
-                  <td>{{ $data['cn_2004_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2004_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2004_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2003_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2004_im']/$data['cn_2003_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2004_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2003_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2004_ex']/$data['cn_2003_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2003年</td>
-                  <td>{{ $data['cn_2003_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2003_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2003_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2002_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2003_im']/$data['cn_2002_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2003_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2002_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2003_ex']/$data['cn_2002_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2002年</td>
-                  <td>{{ $data['cn_2002_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2002_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2002_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2001_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2002_im']/$data['cn_2001_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2002_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2001_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2002_ex']/$data['cn_2001_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2001年</td>
-                  <td>{{ $data['cn_2001_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2001_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2001_im'],0)}} USD</td>
+                  <td> @if ($data['cn_2000_im']==0) - % @else {{sprintf("%01.2f",(($data['cn_2001_im']/$data['cn_2000_im']-1)*100)) }}% @endif </td>
+                  <td>{{ number_format($data['cn_2001_ex'],0)}} USD </td>
+                  <td> @if ($data['cn_2000_ex']==0) - % @else {{sprintf("%01.2f",(($data['cn_2001_ex']/$data['cn_2000_ex']-1)*100)) }}% @endif </td>
 		</tr>
 		<tr>
                   <td>2000年</td>
-                  <td>{{ $data['cn_2000_im']}} USD</td>
-                  <td> %</td>
-                  <td>{{ $data['cn_2000_ex']}} USD </td>
-                  <td> %</td>
+                  <td>{{ number_format($data['cn_2000_im'],0)}} USD</td>
+                  <td>- %</td>
+                  <td>{{ number_format($data['cn_2000_ex'],0)}} USD </td>
+                  <td>- %</td>
 		</tr>
 				
 		@endif
