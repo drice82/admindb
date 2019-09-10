@@ -106,7 +106,8 @@ class MainController extends Controller
 	
 		$query = DB::table($year);
 		if ($input_ent) {$query->wherein('enterprise_id', $enterprise_id);}
-		if ($hs) {$query->where('hs_id', 'like',substr($hs,0,8).'%');}
+		if ($hs) {$query->where('hs_id','like', substr($hs,0,8).'%');}
+//		if ($hs) {$query->where('hs_id', $hs);}
 		if ($imex==0 or $imex==1) {$query->where('imex_id', $imex);}
 		$data = $query->paginate(20);
 

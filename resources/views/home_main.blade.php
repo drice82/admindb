@@ -112,13 +112,20 @@
 		{{-- {{dd($e)}} --}}
                 <tr>
                   <td>@if ($e->imex_id) <span class="badge bg-green">进口</span> @else <span class="badge bg-red">出口</span> @endif </td>
-		  <td>{{DB::table('info_enterprise_code')
-				->where('enterprise_id',$e->enterprise_id)
-				->value('enterprise')
+		  <td> {{Cache::remember('ent_id_'.$e->enterprise_id, 10, function() use($e){
+					return DB::table('info_enterprise_code')
+						->where('enterprise_id',$e->enterprise_id)
+						->value('enterprise');})
 		      }}
 		       [{{$e->enterprise_id}}]
 		  </td>
-		  <td>{{DB::table('hs_2016')->where ('hs', 'like', $e->hs_id . '__')->value('hs_name')}}[{{$e->hs_id}}]</td>
+		  <td>{{Cache::remember('hs_id_'.$e->hs_id, 10, function() use($e){
+			return DB::table('hs_2016')
+				->where ('hs', 'like', $e->hs_id . '%')
+				->value('hs_name');})
+			}}
+			[{{$e->hs_id}}]
+		  </td>
 		  <td>{{DB::table('info_trade_code')->where ('code',$e->trademode_id)->value('name')}} </td>
 		  <td>{{DB::table('info_country_code')->where('id', $e->country_id)->value('name')}}</td>
 		  <td><b class="pull-right">@if ($e->quantity==0) -  @else {{number_format($e->value/$e->quantity,2)}} @endif <i class="fa fa-fw fa-usd"></i></b></td>
