@@ -53,4 +53,5 @@
       </div>
       <!-- /.container-fluid -->
     </nav>
+@include('shared._analytics')
   </header>
