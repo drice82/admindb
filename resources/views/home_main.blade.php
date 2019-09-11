@@ -54,7 +54,7 @@
                 </div>
 
 		<div class="col-xs-4">
-                  <input type="text" name="enterprise" class="form-control" placeholder="输入中文企业名称" value="{{old('enterprise')}}">
+                  <input type="text" name="enterprise" class="form-control" placeholder="输入中文企业名称，支持模糊查找" value="{{old('enterprise')}}">
                 </div>
 		<div class="col-xs-2">
 		  <input type="text" name="hs" class="form-control" placeholder="8位HS编码（可选）" value="{{old('hs')}}">

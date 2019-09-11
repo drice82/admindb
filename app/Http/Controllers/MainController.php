@@ -67,7 +67,7 @@ class MainController extends Controller
 	public function home_main(Request $request)
 	{
 		if (!$request->has('enterprise') and !$request->has('hs')) {
-			$data = DB::table('cn_2015')->paginate(20) ;
+			$data = DB::table('cn_2015')->where('id',0)->paginate(20);
 			return view('home_main', compact('data'));
 		}	
 		$enterprise = $request->input('enterprise');

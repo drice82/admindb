@@ -1,5 +1,5 @@
 @extends('homepages.default')
-@section('title', '企业进出口总额查询')
+@section('title', '企业年度统计')
 @section('content')
   <!-- Full Width Column -->
   <div class="content-wrapper">
@@ -7,7 +7,7 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          企业进出口总额查询
+          企业年度统计
           <small>2000年-2016年</small>
         </h1>
       </section>
