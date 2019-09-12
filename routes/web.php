@@ -29,6 +29,8 @@ Route::get('payment/notifyzcy', 'PaymentController@notifyzcy')->name('payment.no
 Route::get('payment/returnzcy', 'PaymentController@returnzcy')->name('payment.returnzcy');
 Route::get('SearchCN', 'HgdbController@cn2014')->name('cn2014');
 Route::get('test', 'MainController@test')->name('test');
-#Route::get('/', 'MainController@home_main')->name('index'); 
+//Route::get('chartjs',function(){
+//	return view('chartjs');});
+ 
 Route::get('/', 'MainController@home_main')->name('home_main');
 Route::get('entinfo', 'MainController@home_entinfo')->name('home_entinfo');

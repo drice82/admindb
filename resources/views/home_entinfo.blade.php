@@ -46,7 +46,61 @@
 
       <div class="row">
 	<div class="col-xs-12">
-          <div class="box">
+	  <div class="box">
+
+	  <!-- BAR CHART -->
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title"><b>进出口图表(单位：USD)</b></h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="barChart" style="height:230px"></canvas>
+	      </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+
+@if (!empty($data))
+<script>
+    var ctx = document.getElementById("barChart").getContext("2d");
+    var data = {
+	labels : ["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009","2010","2011","2012","2013","2014","2015","2016"],
+	datasets : [
+		{
+			fillColor : "rgba(151,187,205,0.5)",
+			strokeColor : "rgba(151,187,205,1)",
+			pointColor : "rgba(151,187,205,1)",
+			pointStrokeColor : "#fff",
+			label : "Export",
+			data : [{{$data['cn_2000_ex']}}, {{$data['cn_2001_ex']}}, {{$data['cn_2002_ex']}}, {{$data['cn_2003_ex']}}, {{$data['cn_2004_ex']}}, {{$data['cn_2005_ex']}}, {{$data['cn_2006_ex']}}, {{$data['cn_2007_ex']}}, {{$data['cn_2008_ex']}}, {{$data['cn_2009_ex']}}, {{$data['cn_2010_ex']}}, {{$data['cn_2011_ex']}}, {{$data['cn_2012_ex']}}, {{$data['cn_2013_ex']}}, {{$data['cn_2014_ex']}}, {{$data['cn_2015_ex']}}, {{$data['cn_2016_ex']}}]
+		},
+		{
+			fillColor : "rgba(220,220,220,0.5)",
+			strokeColor : "rgba(220,220,220,1)",
+			pointColor : "rgba(220,220,220,1)",
+			pointStrokeColor : "#fff",
+			label : "Import",
+			data : [{{$data['cn_2000_im']}}, {{$data['cn_2001_im']}}, {{$data['cn_2002_im']}}, {{$data['cn_2003_im']}}, {{$data['cn_2004_im']}}, {{$data['cn_2005_im']}}, {{$data['cn_2006_im']}}, {{$data['cn_2007_im']}}, {{$data['cn_2008_im']}}, {{$data['cn_2009_im']}}, {{$data['cn_2010_im']}}, {{$data['cn_2011_im']}}, {{$data['cn_2012_im']}}, {{$data['cn_2013_im']}}, {{$data['cn_2014_im']}}, {{$data['cn_2015_im']}}, {{$data['cn_2016_im']}}]
+		}]
+    };
+
+
+  var options = {};
+  var myNewChart = new Chart(ctx).Bar(data,options);
+
+</script>
+
+@endif
+
             <div class="box-header">
               <h3 class="box-title">统计</h3>
             </div>
